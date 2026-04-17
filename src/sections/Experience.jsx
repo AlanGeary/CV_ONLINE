@@ -1,43 +1,53 @@
 const jobs = [
   {
-    period: "2024 mar - act.",
-    title: "Asesor en K-Sport Américas",
-    description: "Estadísticas, gamificación y economías digitales.",
-  },
-  {
-    period: "2022 ago - act.",
-    title: "Docente - Jefe de Trabajos Prácticos",
+    period: "2024 - actual",
+    title: "Asesor en K-Sport Americas",
     description:
-      "Tecnicatura Universitaria de Inteligencia Artificial, FCEIA - UNR. Dedicación semi exclusiva.",
+      "Trabajo en estadisticas, gamificacion y economias digitales para iniciativas vinculadas al ecosistema deportivo.",
   },
   {
-    period: "2021 mar - act.",
-    title: "Docente - Profesor Adjunto",
+    period: "2022 - actual",
+    title: "Docente y jefe de trabajos practicos",
     description:
-      "Tecnicatura Universitaria de Inteligencia Artificial, FCEIA - UNR. Dedicación simple.",
+      "Tecnicatura Universitaria en Inteligencia Artificial, FCEIA - UNR, con dedicacion centrada en acompanamiento, evaluacion y desarrollo de practicas.",
   },
   {
-    period: "2022 mar - 2024 abr.",
-    title: "Asesor I (Economista)",
-    description: "Ministerio de Turismo y Deportes de la Nación.",
-  },
-  {
-    period: "2017 - act.",
-    title: "Consultor Independiente",
+    period: "2021 - actual",
+    title: "Profesor adjunto",
     description:
-      "Asesoría económica, análisis de coyuntura, informes macroeconómicos y sectoriales, evaluación de proyectos, análisis estadístico, fintech y criptoactivos.",
+      "Participacion academica en asignaturas del campo de datos e inteligencia artificial dentro de la UNR.",
+  },
+  {
+    period: "2022 - 2024",
+    title: "Asesor I en el Ministerio de Turismo y Deportes",
+    description:
+      "Analisis economico y soporte tecnico para proyectos del sector publico nacional.",
+  },
+  {
+    period: "2017 - actual",
+    title: "Consultor independiente",
+    description:
+      "Asesoria economica, informes de coyuntura, evaluacion de proyectos, analisis estadistico, fintech y criptoactivos.",
   },
 ];
 
 export default function Experience() {
   return (
-    <section>
-      <span className="section-kicker">Trayectoria</span>
-      <h2>Experiencia</h2>
+    <section className="content-section">
+      <header className="section-heading">
+        <span className="section-kicker">Trayectoria</span>
+        <div className="section-title-row">
+          <h2>Experiencia profesional</h2>
+        </div>
+        <p className="section-intro">
+          Recorrido combinado entre gestion publica, consultoria, analitica y
+          trabajo academico.
+        </p>
+      </header>
 
       <div className="timeline">
-        {jobs.map((job, index) => (
-          <article className="timeline-item" key={index}>
+        {jobs.map((job) => (
+          <article className="timeline-item" key={`${job.period}-${job.title}`}>
             <div className="timeline-period">{job.period}</div>
             <div>
               <h3>{job.title}</h3>

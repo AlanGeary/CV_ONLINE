@@ -1,51 +1,47 @@
+const groups = [
+  {
+    title: "Lenguajes",
+    items: ["Python", "R", "JavaScript", "HTML", "CSS", "Markdown", "LaTeX", "YAML"],
+  },
+  {
+    title: "IA y data science",
+    items: ["Scikit-learn", "Pandas", "NumPy", "Analitica predictiva", "Visualizacion"],
+  },
+  {
+    title: "Bases de datos",
+    items: ["SQL", "Modelos relacionales", "Bases vectoriales", "Grafos"],
+  },
+  {
+    title: "Entornos de trabajo",
+    items: ["VS Code", "Jupyter", "Google Colab", "Windows", "Flujos docentes"],
+  },
+];
+
 export default function Skills() {
   return (
-    <section>
-      <span className="section-kicker">Herramientas</span>
-      <h2>Habilidades</h2>
+    <section className="content-section">
+      <header className="section-heading">
+        <span className="section-kicker">Herramientas</span>
+        <div className="section-title-row">
+          <h2>Habilidades tecnicas</h2>
+        </div>
+        <p className="section-intro">
+          Stack orientado a analisis, modelado, automatizacion y comunicacion de
+          resultados.
+        </p>
+      </header>
 
       <div className="grid">
-        <article className="card">
-          <h3>Lenguajes</h3>
-          <div className="tags">
-            <span>Python</span>
-            <span>R</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JS</span>
-            <span>Markdown</span>
-            <span>LaTeX</span>
-            <span>YAML</span>
-          </div>
-        </article>
-
-        <article className="card">
-          <h3>IA y Data Science</h3>
-          <div className="tags">
-            <span>Scikit-learn</span>
-            <span>NumPy</span>
-            <span>Pandas</span>
-          </div>
-        </article>
-
-        <article className="card">
-          <h3>Bases de datos</h3>
-          <div className="tags">
-            <span>SQL</span>
-            <span>Vectoriales</span>
-            <span>Grafos</span>
-          </div>
-        </article>
-
-        <article className="card">
-          <h3>Entornos</h3>
-          <div className="tags">
-            <span>VS Code</span>
-            <span>Jupyter</span>
-            <span>Google Colab</span>
-            <span>Windows</span>
-          </div>
-        </article>
+        {groups.map((group) => (
+          <article className="card" key={group.title}>
+            <h3>{group.title}</h3>
+            <div className="tags">
+              {group.items.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

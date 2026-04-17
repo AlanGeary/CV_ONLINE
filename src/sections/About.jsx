@@ -1,41 +1,75 @@
+const highlights = [
+  "Formacion en economia y posgrado en estadistica aplicada con tesis en curso.",
+  "Experiencia en sector publico, consultoria privada, analitica y proyectos digitales.",
+  "Trayectoria docente en inteligencia artificial, ciencia de datos y programacion.",
+];
+
+const metrics = [
+  { value: "+7", caption: "anos de consultoria independiente y proyectos aplicados" },
+  { value: "4", caption: "materias universitarias vinculadas a IA y datos" },
+  { value: "2", caption: "perfiles integrados: analisis economico y ciencia de datos" },
+];
+
 function About() {
   return (
-    <section>
-      <span className="section-kicker">Perfil profesional</span>
-      <h2>Alan Geary</h2>
+    <section className="content-section">
+      <header className="section-heading">
+        <span className="section-kicker">Perfil profesional</span>
+        <div className="section-title-row">
+          <h2>Economia, datos e inteligencia artificial con mirada docente</h2>
+        </div>
+        <p className="section-intro">
+          Un perfil orientado a convertir informacion compleja en analisis utiles,
+          decisiones mejor fundamentadas y experiencias de aprendizaje claras.
+        </p>
+      </header>
 
       <div className="hero-card">
-        <p>
-          Profesional con formación de grado en economía y posgrado en
-          estadística aplicada, con tesis en curso. Docente universitario con
-          perfil de científico de datos, fundamentos en modelos estadísticos y
-          herramientas informáticas de cómputo y visualización.
+        <p className="lead">
+          Profesional con base en economia y especializacion en estadistica
+          aplicada, enfocado en ciencia de datos, inteligencia artificial y
+          consultoria para organizaciones publicas, privadas y academicas.
         </p>
-        <p>
-          Experiencia en consultoría para el sector público y proyectos
-          privados, además de trayectoria laboral empresarial en logística
-          industrial y rol comercial para el sector gráfico, tanto en mercado
-          local como nacional.
-        </p>
-        <p>
-          Muy buena capacidad pedagógica de comunicación y experiencia con
-          personal a cargo.
-        </p>
+
+        <div className="split-copy">
+          <p>
+            Combina herramientas cuantitativas, visualizacion y pensamiento
+            estrategico para abordar problemas reales de negocio, investigacion y
+            politica publica.
+          </p>
+          <p>
+            Tambien aporta una fuerte capacidad pedagogica para explicar conceptos
+            tecnicos, coordinar equipos y acompanar procesos de formacion.
+          </p>
+        </div>
+      </div>
+
+      <div className="stats-grid">
+        {metrics.map((item) => (
+          <article className="card" key={item.caption}>
+            <div className="metric">{item.value}</div>
+            <p className="metric-caption">{item.caption}</p>
+          </article>
+        ))}
       </div>
 
       <div className="grid two">
-        <div className="card">
-          <h3>Rol</h3>
-          <p>Economista / Científico de datos</p>
-        </div>
-
-        <div className="card">
+        <article className="card">
           <h3>Foco actual</h3>
           <p>
-            Inteligencia artificial, ciencia de datos, docencia universitaria,
-            estadística aplicada y consultoría.
+            IA aplicada, analitica de datos, docencia universitaria, estadistica
+            y consultoria economica.
           </p>
-        </div>
+        </article>
+
+        <article className="card">
+          <h3>Aportes clave</h3>
+          <ul className="highlight-list">
+            {highlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
       </div>
     </section>
   );
