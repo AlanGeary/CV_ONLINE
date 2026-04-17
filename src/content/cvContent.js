@@ -8,7 +8,7 @@ export const cvContent = {
       menu: [
         { id: "about", label: "Perfil" },
         { id: "experience", label: "Experiencia" },
-        { id: "education", label: "Educacion" },
+        { id: "education", label: "Educación" },
         { id: "teaching", label: "Docencia" },
         { id: "skills", label: "Habilidades" },
         { id: "courses", label: "Cursos" },
@@ -17,106 +17,106 @@ export const cvContent = {
     },
     sidebar: {
       name: "Alan Geary",
-      role: "Economista, docente universitario y cientifico de datos",
+      role: "Economista, docente universitario y científico de datos",
       summary:
-        "Perfil hibrido entre economia aplicada, estadistica, IA y comunicacion docente.",
+        "Perfil híbrido entre economía aplicada, estadística, IA y comunicación docente.",
       meta: [
         { label: "Base", value: "Rosario, Argentina" },
-        { label: "Especialidad", value: "Analitica, modelado y formacion" },
-        { label: "Disponibilidad", value: "Consultoria, academia y proyectos IA" },
+        { label: "Especialidad", value: "Analítica, modelado y formación" },
+        { label: "Disponibilidad", value: "Consultoría, academia y proyectos IA" },
       ],
       note:
-        "Trabajo en la interseccion entre evidencia, decision y tecnologia con una mirada clara para equipos tecnicos y no tecnicos.",
+        "Trabajo en la intersección entre evidencia, decisión y tecnología con una mirada clara para equipos técnicos y no técnicos.",
     },
     sections: {
       about: {
         kicker: "Perfil profesional",
-        title: "Economia, datos e inteligencia artificial con mirada docente",
+        title: "Economía, datos e inteligencia artificial con mirada docente",
         intro:
-          "Un perfil orientado a convertir informacion compleja en analisis utiles, decisiones mejor fundamentadas y experiencias de aprendizaje claras.",
+          "Un perfil orientado a convertir información compleja en análisis útiles, decisiones mejor fundamentadas y experiencias de aprendizaje claras.",
         lead:
-          "Profesional con base en economia y especializacion en estadistica aplicada, enfocado en ciencia de datos, inteligencia artificial y consultoria para organizaciones publicas, privadas y academicas.",
+          "Profesional con base en economía y especialización en estadística aplicada, enfocado en ciencia de datos, inteligencia artificial y consultoría para organizaciones públicas, privadas y académicas.",
         paragraphs: [
-          "Combina herramientas cuantitativas, visualizacion y pensamiento estrategico para abordar problemas reales de negocio, investigacion y politica publica.",
-          "Tambien aporta una fuerte capacidad pedagogica para explicar conceptos tecnicos, coordinar equipos y acompanar procesos de formacion.",
+          "Combina herramientas cuantitativas, visualización y pensamiento estratégico para abordar problemas reales de negocio, investigación y política pública.",
+          "También aporta una fuerte capacidad pedagógica para explicar conceptos técnicos, coordinar equipos y acompañar procesos de formación.",
         ],
         metrics: [
-          { value: "+7", caption: "anos de consultoria independiente y proyectos aplicados" },
+          { value: "+7", caption: "años de consultoría independiente y proyectos aplicados" },
           { value: "4", caption: "materias universitarias vinculadas a IA y datos" },
-          { value: "2", caption: "perfiles integrados: analisis economico y ciencia de datos" },
+          { value: "2", caption: "perfiles integrados: análisis económico y ciencia de datos" },
         ],
         focusTitle: "Foco actual",
         focusText:
-          "IA aplicada, analitica de datos, docencia universitaria, estadistica y consultoria economica.",
+          "IA aplicada, analítica de datos, docencia universitaria, estadística y consultoría económica.",
         highlightsTitle: "Aportes clave",
         highlights: [
-          "Formacion en economia y posgrado en estadistica aplicada con tesis en curso.",
-          "Experiencia en sector publico, consultoria privada, analitica y proyectos digitales.",
-          "Trayectoria docente en inteligencia artificial, ciencia de datos y programacion.",
+          "Formación en economía y posgrado en estadística aplicada con tesis en curso.",
+          "Experiencia en sector público, consultoría privada, analítica y proyectos digitales.",
+          "Trayectoria docente en inteligencia artificial, ciencia de datos y programación.",
         ],
       },
       experience: {
         kicker: "Trayectoria",
         title: "Experiencia profesional",
         intro:
-          "Recorrido combinado entre gestion publica, consultoria, analitica y trabajo academico.",
+          "Recorrido combinado entre gestión pública, consultoría, analítica y trabajo académico.",
         items: [
           {
             period: "2024 - actual",
             title: "Asesor en K-Sport Americas",
             description:
-              "Trabajo en estadisticas, gamificacion y economias digitales para iniciativas vinculadas al ecosistema deportivo.",
+              "Trabajo en estadísticas, gamificación y economías digitales para iniciativas vinculadas al ecosistema deportivo.",
           },
           {
             period: "2022 - actual",
-            title: "Docente y jefe de trabajos practicos",
+            title: "Docente y jefe de trabajos prácticos",
             description:
-              "Tecnicatura Universitaria en Inteligencia Artificial, FCEIA - UNR, con dedicacion centrada en acompanamiento, evaluacion y desarrollo de practicas.",
+              "Tecnicatura Universitaria en Inteligencia Artificial, FCEIA - UNR, con dedicación centrada en acompañamiento, evaluación y desarrollo de prácticas.",
           },
           {
             period: "2021 - actual",
             title: "Profesor adjunto",
             description:
-              "Participacion academica en asignaturas del campo de datos e inteligencia artificial dentro de la UNR.",
+              "Participación académica en asignaturas del campo de datos e inteligencia artificial dentro de la UNR.",
           },
           {
             period: "2022 - 2024",
             title: "Asesor I en el Ministerio de Turismo y Deportes",
             description:
-              "Analisis economico y soporte tecnico para proyectos del sector publico nacional.",
+              "Análisis económico y soporte técnico para proyectos del sector público nacional.",
           },
           {
             period: "2017 - actual",
             title: "Consultor independiente",
             description:
-              "Asesoria economica, informes de coyuntura, evaluacion de proyectos, analisis estadistico, fintech y criptoactivos.",
+              "Asesoría económica, informes de coyuntura, evaluación de proyectos, análisis estadístico, fintech y criptoactivos.",
           },
         ],
       },
       education: {
-        kicker: "Formacion",
-        title: "Educacion",
+        kicker: "Formación",
+        title: "Educación",
         intro:
-          "Base economica solida complementada con profundizacion en estadistica y herramientas cuantitativas.",
+          "Base económica sólida complementada con profundización en estadística y herramientas cuantitativas.",
         items: [
           {
-            title: "Licenciatura en Economia",
+            title: "Licenciatura en Economía",
             institution: "Universidad Nacional de Rosario, Argentina",
-            detail: "Finalizacion: 2019",
+            detail: "Finalización: 2019",
           },
           {
-            title: "Magister en Estadistica",
+            title: "Magíster en Estadística",
             institution: "Universidad Nacional de Rosario, Argentina",
-            detail: "Finalizacion academica: 2021",
+            detail: "Finalización académica: 2021",
             note: "Tesis en progreso",
           },
         ],
       },
       teaching: {
-        kicker: "Actividad academica",
+        kicker: "Actividad académica",
         title: "Docencia",
         intro:
-          "Experiencia sostenida en formacion universitaria dentro del campo de la inteligencia artificial y la ciencia de datos.",
+          "Experiencia sostenida en formación universitaria dentro del campo de la inteligencia artificial y la ciencia de datos.",
         items: [
           {
             period: "2023 - actual",
@@ -130,21 +130,21 @@ export const cvContent = {
           },
           {
             period: "2022 - actual",
-            title: "Introduccion a la Inteligencia Artificial",
+            title: "Introducción a la Inteligencia Artificial",
             description: "Tecnicatura Universitaria de IA, FCEIA - UNR.",
           },
           {
             period: "2022 - 2023",
-            title: "Programacion I (Python)",
+            title: "Programación I (Python)",
             description: "Tecnicatura Universitaria de IA, FCEIA - UNR.",
           },
         ],
       },
       skills: {
         kicker: "Herramientas",
-        title: "Habilidades tecnicas",
+        title: "Habilidades técnicas",
         intro:
-          "Stack orientado a analisis, modelado, automatizacion y comunicacion de resultados.",
+          "Stack orientado a análisis, modelado, automatización y comunicación de resultados.",
         groups: [
           {
             title: "Lenguajes",
@@ -152,7 +152,7 @@ export const cvContent = {
           },
           {
             title: "IA y data science",
-            items: ["Scikit-learn", "Pandas", "NumPy", "Analitica predictiva", "Visualizacion"],
+            items: ["Scikit-learn", "Pandas", "NumPy", "Analítica predictiva", "Visualización"],
           },
           {
             title: "Bases de datos",
@@ -165,35 +165,35 @@ export const cvContent = {
         ],
       },
       courses: {
-        kicker: "Actualizacion profesional",
+        kicker: "Actualización profesional",
         title: "Cursos y especializaciones",
         intro:
-          "Formacion complementaria constante en programacion, bases de datos, analitica y herramientas para ciencia de datos.",
+          "Formación complementaria constante en programación, bases de datos, analítica y herramientas para ciencia de datos.",
         items: [
-          "2022 - Desarrollo de Shiny Apps · Ciencias Economicas UNR",
+          "2022 - Desarrollo de Shiny Apps · Ciencias Económicas UNR",
           "2022 - Introduction to Computer Science and Programming Using Python · MITx",
-          "2022 - Beca IALAB UBA · Modulo de gobernanza de datos",
+          "2022 - Beca IALAB UBA · Módulo de gobernanza de datos",
           "2021 - Supervised Learning in R: Classification · DataCamp",
           "2021 - Supervised Learning in R: Regression · DataCamp",
           "2021 - Introduction to SQL Server · DataCamp",
           "2021 - Introduction to Relational Databases in SQL · DataCamp",
           "2021 - MicroMasters Data, Economics and Development Policy · MIT",
-          "2021 - Introduccion a la estadistica bayesiana · Ciencias Economicas UNR",
-          "2020 - Lenguaje R nivel avanzado · Ciencias Economicas UNR",
-          "2019 - Lenguaje R nivel inicial · Ciencias Economicas UNR",
+          "2021 - Introducción a la estadística bayesiana · Ciencias Económicas UNR",
+          "2020 - Lenguaje R nivel avanzado · Ciencias Económicas UNR",
+          "2019 - Lenguaje R nivel inicial · Ciencias Económicas UNR",
           "2018 - Curso Maestro de Python 3 · Udemy",
           "2018 - Python Programming Skills · DataCamp",
           "2018 - Data Manipulation Skills with Python · DataCamp",
           "2018 - Visualization Skills with Seaborn and Matplotlib · DataCamp",
           "2018 - Python Data Science Toolbox 1 y 2 · DataCamp",
-          "2007 - Formador certificado en costos y presupuestos graficos · Fundacion Gutenberg",
+          "2007 - Formador certificado en costos y presupuestos gráficos · Fundación Gutenberg",
         ],
       },
       contact: {
         kicker: "Contacto",
         title: "Canales de contacto",
         intro:
-          "Disponible para oportunidades academicas, consultoria y colaboraciones vinculadas a datos e IA.",
+          "Disponible para oportunidades académicas, consultoría y colaboraciones vinculadas a datos e IA.",
         items: [
           {
             title: "Email",
@@ -202,7 +202,7 @@ export const cvContent = {
             external: false,
           },
           {
-            title: "Telefono",
+            title: "Teléfono",
             value: "+54 341 303 9162",
             href: "tel:+543413039162",
             external: false,
