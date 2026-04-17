@@ -1,38 +1,16 @@
-const groups = [
-  {
-    title: "Lenguajes",
-    items: ["Python", "R", "JavaScript", "HTML", "CSS", "Markdown", "LaTeX", "YAML"],
-  },
-  {
-    title: "IA y data science",
-    items: ["Scikit-learn", "Pandas", "NumPy", "Analitica predictiva", "Visualizacion"],
-  },
-  {
-    title: "Bases de datos",
-    items: ["SQL", "Modelos relacionales", "Bases vectoriales", "Grafos"],
-  },
-  {
-    title: "Entornos de trabajo",
-    items: ["VS Code", "Jupyter", "Google Colab", "Windows", "Flujos docentes"],
-  },
-];
-
-export default function Skills() {
+export default function Skills({ content }) {
   return (
     <section className="content-section">
       <header className="section-heading">
-        <span className="section-kicker">Herramientas</span>
+        <span className="section-kicker">{content.kicker}</span>
         <div className="section-title-row">
-          <h2>Habilidades tecnicas</h2>
+          <h2>{content.title}</h2>
         </div>
-        <p className="section-intro">
-          Stack orientado a analisis, modelado, automatizacion y comunicacion de
-          resultados.
-        </p>
+        <p className="section-intro">{content.intro}</p>
       </header>
 
       <div className="grid">
-        {groups.map((group) => (
+        {content.groups.map((group) => (
           <article className="card" key={group.title}>
             <h3>{group.title}</h3>
             <div className="tags">

@@ -1,40 +1,16 @@
-const contactItems = [
-  {
-    title: "Email",
-    value: "alan.geary@gmail.com",
-    href: "mailto:alan.geary@gmail.com",
-    external: false,
-  },
-  {
-    title: "Telefono",
-    value: "+54 341 303 9162",
-    href: "tel:+543413039162",
-    external: false,
-  },
-  {
-    title: "LinkedIn",
-    value: "linkedin.com/in/-alangeary-/",
-    href: "https://www.linkedin.com/in/-alangeary-/",
-    external: true,
-  },
-];
-
-export default function Contact() {
+export default function Contact({ content }) {
   return (
     <section className="content-section">
       <header className="section-heading">
-        <span className="section-kicker">Contacto</span>
+        <span className="section-kicker">{content.kicker}</span>
         <div className="section-title-row">
-          <h2>Canales de contacto</h2>
+          <h2>{content.title}</h2>
         </div>
-        <p className="section-intro">
-          Disponible para oportunidades academicas, consultoria y colaboraciones
-          vinculadas a datos e IA.
-        </p>
+        <p className="section-intro">{content.intro}</p>
       </header>
 
       <div className="contact-grid">
-        {contactItems.map((item) => (
+        {content.items.map((item) => (
           <article className="card" key={item.title}>
             <h3>{item.title}</h3>
             <a

@@ -6,20 +6,22 @@ import Skills from "../sections/Skills.jsx";
 import Contact from "../sections/Contact.jsx";
 import Courses from "../sections/Couses.jsx";
 
-const sections = {
-  about: <About />,
-  experience: <Experience />,
-  education: <Education />,
-  teaching: <Teaching />,
-  skills: <Skills />,
-  courses: <Courses />,
-  contact: <Contact />,
-};
+export default function MainPanel({ activeSection, content }) {
+  const { sections } = content;
 
-export default function MainPanel({ activeSection }) {
+  const sectionMap = {
+    about: <About content={sections.about} />,
+    experience: <Experience content={sections.experience} />,
+    education: <Education content={sections.education} />,
+    teaching: <Teaching content={sections.teaching} />,
+    skills: <Skills content={sections.skills} />,
+    courses: <Courses content={sections.courses} />,
+    contact: <Contact content={sections.contact} />,
+  };
+
   return (
     <main className="main-panel">
-      <div className="content-surface">{sections[activeSection] ?? <About />}</div>
+      <div className="content-surface">{sectionMap[activeSection] ?? sectionMap.about}</div>
     </main>
   );
 }

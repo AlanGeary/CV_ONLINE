@@ -1,45 +1,58 @@
-const menuItems = [
-  { id: "about", label: "Perfil" },
-  { id: "experience", label: "Experiencia" },
-  { id: "education", label: "Educacion" },
-  { id: "teaching", label: "Docencia" },
-  { id: "skills", label: "Habilidades" },
-  { id: "courses", label: "Cursos" },
-  { id: "contact", label: "Contacto" },
+const languages = [
+  { id: "es", label: "ES" },
+  { id: "en", label: "EN" },
 ];
 
-export default function Sidebar({ activeSection, setActiveSection }) {
+export default function Sidebar({
+  activeSection,
+  setActiveSection,
+  language,
+  setLanguage,
+  content,
+}) {
+  const { ui, sidebar } = content;
+
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <span className="eyebrow">CV online</span>
-        <h1>Alan Geary</h1>
-        <p className="role-line">Economista, docente universitario y cientifico de datos</p>
-        <p className="sidebar-summary">
-          Perfil hibrido entre economia aplicada, estadistica, IA y comunicacion
-          docente.
-        </p>
+        <div className="sidebar-topbar">
+          <span className="eyebrow">{ui.cvLabel}</span>
+
+          <div className="language-switcher" aria-label={ui.languageLabel}>
+            {languages.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                className={
+                  language === item.id ? "language-button active" : "language-button"
+                }
+                onClick={() => setLanguage(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <h1>{sidebar.name}</h1>
+        <p className="role-line">{sidebar.role}</p>
+        <p className="sidebar-summary">{sidebar.summary}</p>
       </div>
 
       <div className="sidebar-meta">
-        <div>
-          <span className="meta-label">Base</span>
-          <span className="meta-value">Rosario, Argentina</span>
-        </div>
-        <div>
-          <span className="meta-label">Especialidad</span>
-          <span className="meta-value">Analitica, modelado y formacion</span>
-        </div>
-        <div>
-          <span className="meta-label">Disponibilidad</span>
-          <span className="meta-value">Consultoria, academia y proyectos IA</span>
-        </div>
+        {sidebar.meta.map((item) => (
+          <div key={item.label}>
+            <span className="meta-label">{item.label}</span>
+            <span className="meta-value">{item.value}</span>
+          </div>
+        ))}
       </div>
 
       <nav className="top-nav">
-        {menuItems.map((item, index) => (
+        {ui.menu.map((item, index) => (
           <button
             key={item.id}
+            type="button"
             className={activeSection === item.id ? "nav-item active" : "nav-item"}
             onClick={() => setActiveSection(item.id)}
           >
@@ -50,11 +63,8 @@ export default function Sidebar({ activeSection, setActiveSection }) {
       </nav>
 
       <div className="sidebar-note">
-        <strong>Enfoque profesional</strong>
-        <p>
-          Trabajo en la interseccion entre evidencia, decision y tecnologia con
-          una mirada clara para equipos tecnicos y no tecnicos.
-        </p>
+        <strong>{ui.professionalFocus}</strong>
+        <p>{sidebar.note}</p>
       </div>
     </aside>
   );
