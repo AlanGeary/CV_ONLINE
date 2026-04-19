@@ -5,9 +5,10 @@ import Teaching from "../sections/Teaching.jsx";
 import Skills from "../sections/Skills.jsx";
 import Contact from "../sections/Contact.jsx";
 import Courses from "../sections/Couses.jsx";
+import Chat from "../sections/Chat.jsx";
 
 export default function MainPanel({ activeSection, content }) {
-  const { sections } = content;
+  const { language, sections } = content;
 
   const sectionMap = {
     about: <About content={sections.about} />,
@@ -16,6 +17,7 @@ export default function MainPanel({ activeSection, content }) {
     teaching: <Teaching content={sections.teaching} />,
     skills: <Skills content={sections.skills} />,
     courses: <Courses content={sections.courses} />,
+    chat: <Chat content={sections.chat} language={language} />,
     contact: <Contact content={sections.contact} />,
   };
 

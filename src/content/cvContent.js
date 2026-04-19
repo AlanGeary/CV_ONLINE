@@ -12,6 +12,7 @@ export const cvContent = {
         { id: "teaching", label: "Docencia" },
         { id: "skills", label: "Habilidades" },
         { id: "courses", label: "Cursos" },
+        { id: "chat", label: "Chat" },
         { id: "contact", label: "Contacto" },
       ],
     },
@@ -189,6 +190,46 @@ export const cvContent = {
           "2007 - Formador certificado en costos y presupuestos gráficos · Fundación Gutenberg",
         ],
       },
+      chat: {
+        kicker: "Asistente",
+        title: "Pregúntale al CV",
+        intro:
+          "Esta primera versión responde solo con información del perfil profesional, en un tono claro y de extensión media.",
+        badge: "Mock demo",
+        labels: {
+          assistant: "CV",
+          user: "Tú",
+        },
+        helper:
+          "La interfaz ya está preparada para Cloudflare Workers AI. Si el Worker aún no está corriendo, responde con el modo demo local.",
+        placeholder: "Escribe una pregunta sobre experiencia, habilidades, docencia o formación…",
+        sendLabel: "Enviar",
+        thinkingLabel: "Pensando…",
+        emptyTitle: "Prueba con alguna de estas preguntas",
+        suggestions: [
+          "Resume su perfil profesional",
+          "¿Qué experiencia tiene en inteligencia artificial?",
+          "¿Qué materias dicta actualmente?",
+        ],
+        initialMessage:
+          "Puedo responder preguntas sobre experiencia, formación, docencia, habilidades y disponibilidad profesional de Alan Geary.",
+        fallbackNotice:
+          "El Worker todavía no está disponible, así que esta respuesta salió del modo demo local.",
+        fallback:
+          "Todavía no tengo una respuesta específica para eso en la demo. En la siguiente etapa lo conectaremos al modelo para responder con más flexibilidad, siempre usando solo el contenido del CV.",
+        mockReplies: {
+          profile:
+            "Alan Geary combina formación en economía con especialización en estadística aplicada, además de experiencia en docencia universitaria, analítica e inteligencia artificial. Su perfil está orientado a convertir información compleja en análisis claros, útiles para decisiones, investigación y proyectos aplicados.",
+          ai:
+            "Su experiencia en inteligencia artificial aparece sobre todo en el plano académico y aplicado. Participa en la Tecnicatura Universitaria en Inteligencia Artificial de la UNR, dicta materias vinculadas a IA, ciencia de datos y procesamiento de lenguaje natural, y además trabaja con analítica, modelado y proyectos digitales.",
+          teaching:
+            "Actualmente dicta o ha dictado materias como Procesamiento de Lenguaje Natural, Fundamentos de Ciencia de Datos, Introducción a la Inteligencia Artificial y Programación I en la Tecnicatura Universitaria de IA de la FCEIA-UNR.",
+          education:
+            "Su formación incluye la Licenciatura en Economía en la Universidad Nacional de Rosario y una Maestría en Estadística, también en la UNR, con tesis en progreso. Esa combinación le da una base fuerte tanto conceptual como cuantitativa.",
+          contact:
+            "Está disponible para consultoría, academia y proyectos vinculados a IA. En el CV figuran como canales de contacto su email alan.geary@gmail.com, el teléfono +54 341 303 9162 y su perfil de LinkedIn.",
+        },
+      },
       contact: {
         kicker: "Contacto",
         title: "Canales de contacto",
@@ -230,6 +271,7 @@ export const cvContent = {
         { id: "teaching", label: "Teaching" },
         { id: "skills", label: "Skills" },
         { id: "courses", label: "Courses" },
+        { id: "chat", label: "Chat" },
         { id: "contact", label: "Contact" },
       ],
     },
@@ -406,6 +448,46 @@ export const cvContent = {
           "2018 - Python Data Science Toolbox 1 and 2 · DataCamp",
           "2007 - Certified trainer in graphic costs and budgeting · Gutenberg Foundation",
         ],
+      },
+      chat: {
+        kicker: "Assistant",
+        title: "Ask the CV",
+        intro:
+          "This first version only answers using information from the professional profile, with a clear medium-length tone.",
+        badge: "Mock demo",
+        labels: {
+          assistant: "CV",
+          user: "You",
+        },
+        helper:
+          "The interface is already prepared for Cloudflare Workers AI. If the Worker is not running yet, it falls back to the local demo mode.",
+        placeholder: "Ask about experience, skills, teaching or academic background…",
+        sendLabel: "Send",
+        thinkingLabel: "Thinking…",
+        emptyTitle: "Try one of these prompts",
+        suggestions: [
+          "Summarize the professional profile",
+          "What experience does he have in artificial intelligence?",
+          "Which courses is he currently teaching?",
+        ],
+        initialMessage:
+          "I can answer questions about Alan Geary's experience, education, teaching, skills and professional availability.",
+        fallbackNotice:
+          "The Worker is not available yet, so this answer came from the local demo mode.",
+        fallback:
+          "I do not have a specific answer for that in the demo yet. In the next stage we will connect it to the model so it can respond more flexibly while still using only the CV content.",
+        mockReplies: {
+          profile:
+            "Alan Geary combines a background in economics with specialization in applied statistics, plus university teaching, analytics and artificial intelligence experience. His profile is focused on turning complex information into clear analysis that supports decisions, research and applied projects.",
+          ai:
+            "His artificial intelligence experience appears mainly in academic and applied settings. He is part of the Artificial Intelligence degree program at UNR, teaches courses related to AI, data science and natural language processing, and also works with analytics, modeling and digital projects.",
+          teaching:
+            "He currently teaches or has taught courses such as Natural Language Processing, Foundations of Data Science, Introduction to Artificial Intelligence and Programming I in the University Degree in AI at FCEIA-UNR.",
+          education:
+            "His academic background includes a BA in Economics at the National University of Rosario and a Master's Degree in Statistics at the same institution, with thesis in progress. That combination gives him both conceptual and quantitative depth.",
+          contact:
+            "He is available for consulting, academic work and AI-related projects. The CV lists alan.geary@gmail.com, +54 341 303 9162 and his LinkedIn profile as contact channels.",
+        },
       },
       contact: {
         kicker: "Contact",

@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cf:dev": "wrangler dev --config worker/wrangler.jsonc",
+    "cf:deploy": "wrangler deploy --config worker/wrangler.jsonc"
   },
   "dependencies": {
     "react": "^19.2.4",
