@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-const apiBaseUrl = import.meta.env.VITE_CHAT_API_URL?.replace(/\/$/, "") ?? "";
+const apiBaseUrl = "https://cv-online-chat.alan-geary.workers.dev";
 
 function buildMockReply(message, content) {
   const normalized = message.toLowerCase();
