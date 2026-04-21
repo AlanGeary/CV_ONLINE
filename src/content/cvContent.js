@@ -18,7 +18,7 @@ export const cvContent = {
     },
     sidebar: {
       name: "Alan Geary",
-      role: "Economista, docente universitario y científico de datos",
+      role: "Ciencia de datos, inteligencia artificial y economía aplicada",
       summary:
         "Perfil híbrido entre economía aplicada, estadística, IA y comunicación docente.",
       meta: [
