@@ -1,25 +1,28 @@
 const MODEL = "@cf/meta/llama-3.1-8b-instruct";
+const MAX_MESSAGE_LENGTH = 420;
+const MAX_HISTORY_ITEMS = 6;
+const MAX_DAILY_QUESTIONS = 4;
 
 const assistantContexts = {
   es: `Eres el asistente oficial del CV de Alan Geary.
 
-Responde solo usando la información de contexto provista.
-No inventes experiencias, cargos, tecnologías, logros, títulos ni datos de contacto.
+Responde solo usando la informacion de contexto provista.
+No inventes experiencias, cargos, tecnologias, logros, titulos ni datos de contacto.
 Si la pregunta no puede responderse con el CV, dilo de forma clara.
-El tono debe ser profesional, seguro y útil.
-Las respuestas deben tener una longitud media: más que una frase corta, pero sin extenderse innecesariamente.
-Responde en español.
+El tono debe ser profesional, seguro y util.
+Las respuestas deben tener una longitud media: mas que una frase corta, pero sin extenderse innecesariamente.
+Responde en espanol.
 
 Contexto del CV:
-- Alan Geary es economista, docente universitario y científico de datos.
-- Su perfil combina economía aplicada, estadística, IA y comunicación docente.
-- Está basado en Rosario, Argentina.
-- Su foco actual es IA aplicada, analítica de datos, docencia universitaria, estadística y consultoría económica.
-- Tiene más de 7 años de consultoría independiente y proyectos aplicados.
-- Experiencia profesional: Asesor en K-Sport Americas; docente y jefe de trabajos prácticos en la Tecnicatura Universitaria en Inteligencia Artificial de FCEIA-UNR; profesor adjunto; asesor en el Ministerio de Turismo y Deportes; consultor independiente.
-- Docencia: Procesamiento de Lenguaje Natural, Fundamentos de Ciencia de Datos, Introducción a la Inteligencia Artificial y Programación I.
-- Formación: Licenciatura en Economía en la Universidad Nacional de Rosario y Magíster en Estadística en la misma universidad, con tesis en progreso.
-- Habilidades: Python, R, JavaScript, HTML, CSS, Markdown, LaTeX, YAML, Scikit-learn, Pandas, NumPy, analítica predictiva, visualización, SQL, bases vectoriales, grafos y entornos como VS Code, Jupyter y Google Colab.
+- Alan Geary es economista, docente universitario y cientifico de datos.
+- Su perfil combina economia aplicada, estadistica, IA y comunicacion docente.
+- Esta basado en Rosario, Argentina.
+- Su foco actual es IA aplicada, analitica de datos, docencia universitaria, estadistica y consultoria economica.
+- Tiene mas de 7 anos de consultoria independiente y proyectos aplicados.
+- Experiencia profesional: Asesor en K-Sport Americas; docente y jefe de trabajos practicos en la Tecnicatura Universitaria en Inteligencia Artificial de FCEIA-UNR; profesor adjunto; asesor en el Ministerio de Turismo y Deportes; consultor independiente.
+- Docencia: Procesamiento de Lenguaje Natural, Fundamentos de Ciencia de Datos, Introduccion a la Inteligencia Artificial y Programacion I.
+- Formacion: Licenciatura en Economia en la Universidad Nacional de Rosario y Magister en Estadistica en la misma universidad, con tesis en progreso.
+- Habilidades: Python, R, JavaScript, HTML, CSS, Markdown, LaTeX, YAML, Scikit-learn, Pandas, NumPy, analitica predictiva, visualizacion, SQL, bases vectoriales, grafos y entornos como VS Code, Jupyter y Google Colab.
 - Contacto: alan.geary@gmail.com, +54 341 303 9162, linkedin.com/in/-alangeary-/.
 `,
   en: `You are the official assistant for Alan Geary's CV.
@@ -70,11 +73,68 @@ function normalizeHistory(history) {
         typeof item.text === "string" &&
         item.text.trim()
     )
-    .slice(-6)
+    .slice(-MAX_HISTORY_ITEMS)
     .map((item) => ({
       role: item.role,
-      content: item.text.trim().slice(0, 1200),
+      content: item.text.trim().slice(0, 700),
     }));
+}
+
+function getCurrentDayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function getSecondsUntilUtcMidnight() {
+  const now = new Date();
+  const nextMidnight = Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate() + 1,
+    0,
+    0,
+    5
+  );
+
+  return Math.max(60, Math.ceil((nextMidnight - now.getTime()) / 1000));
+}
+
+async function enforceDailyQuestionLimit(request, env) {
+  if (!env.CHAT_LIMITS) {
+    return { ok: true, limited: false, configured: false };
+  }
+
+  const ip =
+    request.headers.get("CF-Connecting-IP") ||
+    request.headers.get("x-forwarded-for") ||
+    "unknown";
+
+  const dayKey = getCurrentDayKey();
+  const storageKey = `chat-limit:${dayKey}:${ip}`;
+  const rawValue = await env.CHAT_LIMITS.get(storageKey);
+  const currentCount = Number.parseInt(rawValue ?? "0", 10) || 0;
+
+  if (currentCount >= MAX_DAILY_QUESTIONS) {
+    return {
+      ok: false,
+      limited: true,
+      configured: true,
+      remaining: 0,
+      limit: MAX_DAILY_QUESTIONS,
+    };
+  }
+
+  const nextCount = currentCount + 1;
+  await env.CHAT_LIMITS.put(storageKey, String(nextCount), {
+    expirationTtl: getSecondsUntilUtcMidnight(),
+  });
+
+  return {
+    ok: true,
+    limited: false,
+    configured: true,
+    remaining: Math.max(0, MAX_DAILY_QUESTIONS - nextCount),
+    limit: MAX_DAILY_QUESTIONS,
+  };
 }
 
 export default {
@@ -102,17 +162,39 @@ export default {
       return json({ error: "Message is required" }, { status: 400 });
     }
 
+    if (message.length > MAX_MESSAGE_LENGTH) {
+      return json(
+        {
+          error: "Message too long",
+          maxLength: MAX_MESSAGE_LENGTH,
+        },
+        { status: 400 }
+      );
+    }
+
+    const limitCheck = await enforceDailyQuestionLimit(request, env);
+    if (!limitCheck.ok) {
+      return json(
+        {
+          error: "Daily question limit reached",
+          limit: MAX_DAILY_QUESTIONS,
+          reset: "00:00 UTC",
+        },
+        { status: 429 }
+      );
+    }
+
     const messages = [
       { role: "system", content: assistantContexts[language] },
       ...normalizeHistory(body.history),
-      { role: "user", content: message.slice(0, 2000) },
+      { role: "user", content: message },
     ];
 
     try {
       const response = await env.AI.run(MODEL, {
         messages,
-        max_tokens: 350,
-        temperature: 0.4,
+        max_tokens: 320,
+        temperature: 0.35,
       });
 
       const reply =
@@ -125,7 +207,11 @@ export default {
         return json({ error: "Empty model response" }, { status: 502 });
       }
 
-      return json({ reply });
+      return json({
+        reply: reply.trim(),
+        limitConfigured: limitCheck.configured,
+        remainingToday: limitCheck.remaining,
+      });
     } catch (error) {
       return json(
         {

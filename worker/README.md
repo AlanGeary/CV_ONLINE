@@ -46,3 +46,30 @@ npx wrangler deploy --config worker/wrangler.jsonc
 - The Worker uses the `AI` binding as documented by Cloudflare Workers AI.
 - The current model is `@cf/meta/llama-3.1-8b-instruct`.
 - Responses are constrained to the CV context only.
+- If you configure the `CHAT_LIMITS` KV binding, the Worker enforces
+  `4` questions per IP per UTC day.
+
+## Enable the daily limit with KV
+
+1. Create a KV namespace:
+
+```bash
+npx wrangler kv namespace create CHAT_LIMITS
+```
+
+2. Copy the returned namespace id into `worker/wrangler.jsonc`:
+
+```jsonc
+"kv_namespaces": [
+  {
+    "binding": "CHAT_LIMITS",
+    "id": "your-real-namespace-id"
+  }
+]
+```
+
+3. Redeploy the Worker:
+
+```bash
+npx wrangler deploy --config worker/wrangler.jsonc
+```

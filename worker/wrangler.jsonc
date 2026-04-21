@@ -3,6 +3,12 @@
   "name": "cv-online-chat",
   "main": "src/index.js",
   "compatibility_date": "2026-04-18",
+  "kv_namespaces": [
+    {
+      "binding": "CHAT_LIMITS",
+      "id": "dd8cfe05ed8641d18199965030b25d70"
+    }
+  ],
   "ai": {
     "binding": "AI"
   }
