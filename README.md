@@ -1,16 +1,68 @@
-# React + Vite
+# CV Online
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CV online construido con React + Vite, con una sección de chat preparada para responder sobre el perfil profesional usando Cloudflare Workers AI.
 
-Currently, two official plugins are available:
+## Desarrollo local
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Instala dependencias:
 
-## React Compiler
+```powershell
+npm.cmd install
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Levanta el Worker del chat:
 
-## Expanding the ESLint configuration
+```powershell
+npm.cmd run cf:dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+En otra terminal, levanta el frontend:
+
+```powershell
+npm.cmd run dev
+```
+
+## Build del frontend
+
+```powershell
+npm.cmd run build
+```
+
+## Worker de Cloudflare
+
+Desplegar el Worker:
+
+```powershell
+npm.cmd run cf:deploy
+```
+
+Worker actual:
+
+```txt
+https://cv-online-chat.alan-geary.workers.dev
+```
+
+## Variable de entorno del frontend
+
+El chat usa `VITE_CHAT_API_URL` para decidir a qué endpoint llamar en producción.
+
+Ejemplo:
+
+```txt
+VITE_CHAT_API_URL=https://cv-online-chat.alan-geary.workers.dev
+```
+
+Puedes copiar `.env.example` a `.env.local` para pruebas locales de producción si lo necesitas.
+
+## Deploy recomendado
+
+La opción más simple para este proyecto es:
+
+- Frontend en Cloudflare Pages
+- Chat en Cloudflare Workers AI
+
+En Cloudflare Pages configura:
+
+- Build command: `npm run build`
+- Output directory: `dist`
+- Environment variable: `VITE_CHAT_API_URL=https://cv-online-chat.alan-geary.workers.dev`

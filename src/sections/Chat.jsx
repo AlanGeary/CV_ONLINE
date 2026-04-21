@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 
+const apiBaseUrl = import.meta.env.VITE_CHAT_API_URL?.replace(/\/$/, "") ?? "";
+
 function buildMockReply(message, content) {
   const normalized = message.toLowerCase();
 
@@ -77,7 +79,7 @@ export default function Chat({ content, language }) {
     setError("");
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch(`${apiBaseUrl}/api/chat`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
