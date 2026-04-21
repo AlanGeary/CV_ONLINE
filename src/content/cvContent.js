@@ -192,31 +192,31 @@ export const cvContent = {
       },
       chat: {
         kicker: "Asistente",
-        title: "Pregúntale al CV",
+        title: "Explora el perfil",
         intro:
-          "Esta primera versión responde solo con información del perfil profesional, en un tono claro y de extensión media.",
-        badge: "Mock demo",
+          "Consulta experiencia, formación, docencia y habilidades para recorrer el perfil de forma más ágil y enfocada.",
+        badge: "Perfil interactivo",
         labels: {
           assistant: "CV",
           user: "Tú",
         },
         helper:
-          "La interfaz ya está preparada para Cloudflare Workers AI. Si el Worker aún no está corriendo, responde con el modo demo local.",
-        placeholder: "Escribe una pregunta sobre experiencia, habilidades, docencia o formación…",
+          "Una manera simple de identificar trayectoria, especialidades y líneas de trabajo según lo que quieras evaluar.",
+        placeholder: "Pregunta por experiencia, inteligencia artificial, docencia, formación o consultoría…",
         sendLabel: "Enviar",
         thinkingLabel: "Pensando…",
-        emptyTitle: "Prueba con alguna de estas preguntas",
+        emptyTitle: "Preguntas sugeridas",
         suggestions: [
           "Resume su perfil profesional",
           "¿Qué experiencia tiene en inteligencia artificial?",
           "¿Qué materias dicta actualmente?",
         ],
         initialMessage:
-          "Puedo responder preguntas sobre experiencia, formación, docencia, habilidades y disponibilidad profesional de Alan Geary.",
+          "Puedo ayudarte a explorar la trayectoria, formación, docencia, habilidades y disponibilidad profesional de Alan Geary.",
         fallbackNotice:
-          "El Worker todavía no está disponible, así que esta respuesta salió del modo demo local.",
+          "No pude generar una respuesta completa en este momento, pero te dejo una síntesis basada en el perfil disponible.",
         fallback:
-          "Todavía no tengo una respuesta específica para eso en la demo. En la siguiente etapa lo conectaremos al modelo para responder con más flexibilidad, siempre usando solo el contenido del CV.",
+          "No encontré una respuesta lo suficientemente precisa para esa consulta dentro del perfil disponible. Puedes reformularla o probar con una pregunta más concreta.",
         mockReplies: {
           profile:
             "Alan Geary combina formación en economía con especialización en estadística aplicada, además de experiencia en docencia universitaria, analítica e inteligencia artificial. Su perfil está orientado a convertir información compleja en análisis claros, útiles para decisiones, investigación y proyectos aplicados.",
@@ -451,31 +451,31 @@ export const cvContent = {
       },
       chat: {
         kicker: "Assistant",
-        title: "Ask the CV",
+        title: "Explore the profile",
         intro:
-          "This first version only answers using information from the professional profile, with a clear medium-length tone.",
-        badge: "Mock demo",
+          "Ask about experience, education, teaching or skills to explore the profile in a more focused way.",
+        badge: "Interactive profile",
         labels: {
           assistant: "CV",
           user: "You",
         },
         helper:
-          "The interface is already prepared for Cloudflare Workers AI. If the Worker is not running yet, it falls back to the local demo mode.",
-        placeholder: "Ask about experience, skills, teaching or academic background…",
+          "A simple way to identify trajectory, specializations and current lines of work depending on what you want to assess.",
+        placeholder: "Ask about experience, artificial intelligence, teaching, education or consulting…",
         sendLabel: "Send",
         thinkingLabel: "Thinking…",
-        emptyTitle: "Try one of these prompts",
+        emptyTitle: "Suggested questions",
         suggestions: [
           "Summarize the professional profile",
           "What experience does he have in artificial intelligence?",
           "Which courses is he currently teaching?",
         ],
         initialMessage:
-          "I can answer questions about Alan Geary's experience, education, teaching, skills and professional availability.",
+          "I can help you explore Alan Geary's trajectory, education, teaching, skills and professional availability.",
         fallbackNotice:
-          "The Worker is not available yet, so this answer came from the local demo mode.",
+          "I could not generate a complete answer right now, but here is a summary based on the available profile.",
         fallback:
-          "I do not have a specific answer for that in the demo yet. In the next stage we will connect it to the model so it can respond more flexibly while still using only the CV content.",
+          "I could not find a precise enough answer for that request in the available profile. You can rephrase it or try a more specific question.",
         mockReplies: {
           profile:
             "Alan Geary combines a background in economics with specialization in applied statistics, plus university teaching, analytics and artificial intelligence experience. His profile is focused on turning complex information into clear analysis that supports decisions, research and applied projects.",

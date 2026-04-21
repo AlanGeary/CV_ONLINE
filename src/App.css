@@ -463,6 +463,9 @@
 
 .chat-aside {
   align-content: start;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 244, 0.96), rgba(245, 238, 227, 0.9)),
+    radial-gradient(circle at top left, rgba(224, 122, 95, 0.08), transparent 34%);
 }
 
 .chat-aside-header {
@@ -472,34 +475,6 @@
 
 .chat-aside p {
   color: var(--text-soft);
-}
-
-.chat-status-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.chat-status-card {
-  padding: 14px;
-  border: 1px solid rgba(53, 46, 36, 0.08);
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255, 252, 247, 0.95), rgba(245, 238, 227, 0.76));
-}
-
-.chat-status-card strong {
-  color: var(--text-strong);
-  font-size: 1rem;
-}
-
-.chat-status-label {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--text-faint);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .chat-suggestions {
@@ -526,37 +501,8 @@
 
 .chat-card {
   gap: 18px;
-}
-
-.chat-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(53, 46, 36, 0.08);
-}
-
-.chat-card-top > div {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.chat-live-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: #4f9f7d;
-  box-shadow: 0 0 0 5px rgba(79, 159, 125, 0.14);
-}
-
-.chat-live-text,
-.chat-history-count {
-  color: var(--text-faint);
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(251, 246, 239, 0.92));
 }
 
 .chat-messages {

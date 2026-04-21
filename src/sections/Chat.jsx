@@ -61,32 +61,20 @@ function getUiCopy(language) {
     return {
       userLabel: "You",
       assistantLabel: "CV",
-      limitLabel: "Recommended limit",
-      cooldownLabel: "Cooldown",
-      contextLabel: "Source",
-      contextValue: "CV only",
       localDemoWarning: "Worker unavailable. Reply generated with the local demo fallback.",
       maxLengthWarning: `Keep the message under ${maxMessageLength} characters.`,
       cooldownWarning: `Wait ${minSecondsBetweenMessages} seconds before sending another message.`,
       dailyLimitWarning: "This visitor has already used the 4 daily questions available for today.",
-      remainingLabel: "Left today",
-      notConfiguredLabel: "No daily cap",
     };
   }
 
   return {
     userLabel: "Tu",
     assistantLabel: "CV",
-    limitLabel: "Limite sugerido",
-    cooldownLabel: "Pausa",
-    contextLabel: "Fuente",
-    contextValue: "Solo CV",
     localDemoWarning: "El Worker no respondio y se uso el modo demo local.",
     maxLengthWarning: `Mantene el mensaje debajo de ${maxMessageLength} caracteres.`,
     cooldownWarning: `Espera ${minSecondsBetweenMessages} segundos antes de enviar otro mensaje.`,
     dailyLimitWarning: "Este visitante ya uso las 4 preguntas disponibles por hoy.",
-    remainingLabel: "Restan hoy",
-    notConfiguredLabel: "Sin tope diario",
   };
 }
 
@@ -104,8 +92,6 @@ export default function Chat({ content, language }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [lastSentAt, setLastSentAt] = useState(0);
-  const [remainingToday, setRemainingToday] = useState(null);
-  const [dailyLimitEnabled, setDailyLimitEnabled] = useState(false);
 
   async function submitMessage(rawMessage) {
     const message = rawMessage.trim();
@@ -151,8 +137,6 @@ export default function Chat({ content, language }) {
 
       if (!response.ok) {
         if (response.status === 429) {
-          setDailyLimitEnabled(true);
-          setRemainingToday(0);
           setError(uiCopy.dailyLimitWarning);
           return;
         }
@@ -162,11 +146,6 @@ export default function Chat({ content, language }) {
       const data = await response.json();
       if (!data.reply) {
         throw new Error("empty reply");
-      }
-
-      if (typeof data.remainingToday === "number") {
-        setRemainingToday(data.remainingToday);
-        setDailyLimitEnabled(Boolean(data.limitConfigured));
       }
 
       setMessages((current) => [...current, { role: "assistant", text: data.reply }]);
@@ -203,32 +182,6 @@ export default function Chat({ content, language }) {
             <p>{content.helper}</p>
           </div>
 
-          <div className="chat-status-grid">
-            <article className="chat-status-card">
-              <span className="chat-status-label">{uiCopy.limitLabel}</span>
-              <strong>{maxMessageLength}</strong>
-            </article>
-
-            <article className="chat-status-card">
-              <span className="chat-status-label">{uiCopy.cooldownLabel}</span>
-              <strong>{minSecondsBetweenMessages}s</strong>
-            </article>
-
-            <article className="chat-status-card">
-              <span className="chat-status-label">{uiCopy.contextLabel}</span>
-              <strong>{uiCopy.contextValue}</strong>
-            </article>
-
-            <article className="chat-status-card">
-              <span className="chat-status-label">{uiCopy.remainingLabel}</span>
-              <strong>
-                {dailyLimitEnabled
-                  ? remainingToday ?? 4
-                  : uiCopy.notConfiguredLabel}
-              </strong>
-            </article>
-          </div>
-
           <div className="chat-suggestions">
             {content.suggestions.map((suggestion) => (
               <button
@@ -244,14 +197,6 @@ export default function Chat({ content, language }) {
         </aside>
 
         <div className="card chat-card">
-          <div className="chat-card-top">
-            <div>
-              <span className="chat-live-dot" />
-              <span className="chat-live-text">{assistantLabel}</span>
-            </div>
-            <span className="chat-history-count">{messages.length - 1} msgs</span>
-          </div>
-
           <div className="chat-messages">
             {messages.map((message, index) => (
               <article
