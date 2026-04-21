@@ -1,20 +1,9 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "cv-online",
-	"compatibility_date": "2026-04-21",
-	"observability": {
-		"enabled": true
-	},
-	"assets": {
-		"not_found_handling": "single-page-application"
-	},
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
-	"kv_namespaces": [
-		{
-			"binding": "CHAT_LIMITS",
-			"id": "dd8cfe05ed8641d18199965030b25d70"
-		}
-	]
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cv-online",
+  "compatibility_date": "2026-04-21",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
 }
