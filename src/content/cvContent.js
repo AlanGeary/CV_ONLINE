@@ -63,6 +63,18 @@ export const cvContent = {
           "Recorrido combinado entre gestión pública, consultoría, analítica y trabajo académico.",
         items: [
           {
+            period: "2026 - actual",
+            title: "Docente en Herramientas de la Inteligencia Artificial para el trabajo",
+            description:
+              "Escuela de Posgrados, FCEIA - UNR. Dictado de los módulos 1 y 4.",
+          },
+          {
+            period: "2026",
+            title: "Capacitación en Inteligencia Artificial para la Gestión Legislativa",
+            description:
+              "Dictado de los módulos 1 y 3 en una capacitación aplicada al ámbito legislativo de la Provincia de Santa Fe.",
+          },
+          {
             period: "2024 - actual",
             title: "Asesor en K-Sport Americas",
             description:
@@ -119,6 +131,17 @@ export const cvContent = {
         intro:
           "Experiencia sostenida en formación universitaria dentro del campo de la inteligencia artificial y la ciencia de datos.",
         items: [
+          {
+            period: "2026 - actual",
+            title: "Herramientas de la Inteligencia Artificial para el trabajo",
+            description: "Escuela de Posgrados, FCEIA - UNR. Dictado de módulos 1 y 4.",
+          },
+          {
+            period: "2026",
+            title: "Inteligencia Artificial para la Gestión Legislativa",
+            description:
+              "Capacitación aplicada al ámbito legislativo de la Provincia de Santa Fe. Dictado de módulos 1 y 3.",
+          },
           {
             period: "2023 - actual",
             title: "Procesamiento de Lenguaje Natural",
